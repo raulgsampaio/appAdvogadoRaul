@@ -1,11 +1,44 @@
-# Sample Snack app
+# T197_N24AB_Pedro_Melo
 
-Open the `App.js` file to start writing some code. You can preview the changes directly on your phone or tablet by scanning the **QR code** or use the iOS or Android emulators. When you're done, click **Save** and share the link!
+## Integrantes:
 
-When you're ready to see everything that Expo provides (or if you want to use your own editor) you can **Download** your project and use it with [expo cli](https://docs.expo.dev/get-started/installation/#expo-cli)).
+- Pedro Víctor Braga: 2316294
+- Bruna Alencar: 2312687
+- Raul Sampaio: 2412886
+- Igor Santiago: 2225520
+- Matheus Silva: 2312654
 
-All projects created in Snack are publicly available, so you can easily share the link to this project via link, or embed it on a web page with the `<>` button.
+## Descrição do Trabalho:
 
-If you're having problems, you can tweet to us [@expo](https://twitter.com/expo) or ask in our [forums](https://forums.expo.dev/c/expo-dev-tools/61) or [Discord](https://chat.expo.dev/).
+Neste trabalho visamos construir uma aplicação mobile, baseado em um protótipo  
+de alta fidelidade, feito no figma; assim como um exemplo de documentação  
+que mostra as principais funcionalidades e componentes da aplicação.
 
-Snack is Open Source. You can find the code on the [GitHub repo](https://github.com/expo/snack).
+## Tema do trabalho:
+
+Aplicação processos jurídicos (lado administrador) Projeto-3
+
+##Perguntas
+
+- Quais são as área dos administradores do processo, Exemplo: (Civel,Criminal, Familia, etc...)? ou haverá um área especifica so para o monitoramento dos processos (Controladoria)
+
+- Quantos administradores controlam o sistema?
+
+- Quantos tipos de processos existem? quais são eles?
+
+- Quais os tipos de status que um processo pode ter?
+
+- Quais as principais características de um processo?
+  (ex: Tipo, Status,Data Criação, Advogado, etc...)
+
+- Uum processo so tem um único Advogado ativo nele? ou varios advogados podem atualizar o seu status?
+
+- Um processo so pertence a um único cliente?
+
+- O criador do processo determina um prazo de finalização?
+
+existe um fluxo definido para o status de cada tipo de processo?
+exemplo (passo1 -> passo2 -> fim)
+
+Como os processos podem ser filtrados?
+(por Cliente, Por Advogado, Por Status, Por data de criação)

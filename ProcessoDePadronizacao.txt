@@ -1,0 +1,57 @@
+
+AQUI DOCUMENTO TODO O PROCESSO DE LIMPEZA E PADRONIZAÇÃO DO PROJETO FEITO POR MIM, PEDRO VÍCTOR BRAGA, NO DIA 07/05/2025.
+O PROCESSO INICIOU-SE AS 19:10 MAIS OU MENOS, DURANTE A AULA AB NA UNIFOR, E FOI CONCLUÍDO AS 23:48.
+
+
+- fazendo limpeza do projeto
+  - Limpeza referente a https://snack.expo.dev/@brunalencar/70401e
+    - AppNavigator.js e App.js fazem a mesma coisa. Basta inserir no App.js atual
+  - Limpeza referente a https://snack.expo.dev/@brunalencar/projeto-mobile-login
+    - AppNavigator.js e App.js fazem a mesma coisa. Basta inserir no App.js atual
+  - Limpeza referente a https://snack.expo.dev/@brunalencar/projeto-mobile-atualizar
+    - App.js pode ser inserido no App.js atual.
+  - Limpeza referente a https://snack.expo.dev/@brunalencar/projeto-mobile-processo 
+    - App.js é constituido por uma Screen, uma function App.js e styles. Fiz conversão dele para uma tela chamada OpenProcessScreen.js,
+    retirei styles e criei stylesBruna2. App.js foi retirado e pode ser inserido no App.js atual
+  - Limpeza referente a https://snack.expo.dev/@brunalencar/projeto-mobile-sucesso
+    - Não consegui ler este código por falta de padronização. Por favor insira no padrão do projeto vc mesmo, o autor(a) no caso
+  - Limpeza referente a https://snack.expo.dev/@brunalencar/projeto-mobile-perfil
+    - Referenciar corretamente a rota usando PerfilScreenBruna, seguindo o padrão atual.
+    - Retirei o App.js pelos mesmos motivos anteriores.
+  - Limpeza referente a https://snack.expo.dev/@brunalencar/projeto-mobile-criacao-e-salvo
+    - Retirei o App.js pelos mesmo motivos anteriores.
+  
+  - Limpeza do projeto snacks expo:
+    - Não inserí os componentes AssetExemple.js pq não entendi onde eles estavam sendo usados. Se for necessário, autor(a), favor inserí-lo
+    dentro do projeto respeitando o padrão que você encontrou.
+
+
+=====>>>>>>  ESTAS TELAS A SEGUIR FORAM COPIADAS INTEGRALMENTE DO SNACKS EXPO 
+
+=====>>>>>>  RECOMENDO A ADAPTAÇÃO E PADRONIZAÇÃO DELAS AO PROJETO, POR PARTE DE SEUS AUTORES(A)
+
+
+- adicionei telas do front para o projeto
+  - stylesBruna.js
+  - stylesBruna1.js
+  - stylesBruna2.js
+  - stylesBruna3.js
+  - HomeScreenBruna.js
+  - LoginScreenBruna.js
+  - AtualizarScreenBruna.js
+  - OpenProcessScreenBruna.js
+  - PerfilScreenBruna.js
+  - TelaCriacaoBruna.js
+  - ProcessoSalvoBruna.js
+
+- adicionei a pasta components
+  - BottomBar.js
+  - Header.js
+  - Input.js
+  - ProcessoItem.js
+
+
+====== >>>>>> FALTA ATUALIZAR O PROJETO PARA QUE ELE RODE VIA EXPO
+====== >>>>>> A PROFESSORA ALERTOU EM SALA. VI QUE SE TENTAR ACESSAR DAR UM ERRO VIA O APP DO EXPO, MAAAAAASSSS
+====== >>>>>> HÁ UM TUTORIAL ENSINANDO COMO CORRIGIR O PROBLEMA PELO PRÓPRIO EXPO. 
+====== >>>>>> QUEM CONSEGUIR ATUALIZAR O PROJETO PRIMEIRO SUBA O PROJETO ATUALIZADO PARA O GITHUB, POR FAVOR.
