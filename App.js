@@ -7,13 +7,15 @@ import CreateProcessScreen from "./screens/CreateProcessScreen";
 import ListProcessScreen from "./screens/ListProcessScreen";
 import UpdateProcessScreen from "./screens/UpdateProcessScreen";
 import AccountFormScreen from "./screens/AccountFormScreen";
+import HomeScreenPublic from "./screens/HomeScreenPublic";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="AccountForm">
+      <Stack.Navigator initialRouteName="HomePublic">
+        <Stack.Screen name="HomePublic" component={HomeScreenPublic} />
         <Stack.Screen name="AccountForm" component={AccountFormScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
