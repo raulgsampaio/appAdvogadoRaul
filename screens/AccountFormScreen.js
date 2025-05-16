@@ -26,11 +26,19 @@ export default function AccountFormScreen() {
   const [ocupacao, setOcupacao] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const [confirmeSenha, setConfirmeSenha] = useState("");
 
   const handleSave = async () => {
-    if (!nome || !ocupacao || !email || !senha) {
+    if (!nome || !ocupacao || !email || !senha || !confirmeSenha) {
       Alert.alert("Erro", "Preencha todos os campos.");
       return;
+    }
+
+    if (senha != confirmeSenha) {
+      return Alert.alert(
+        "As senhas não são compatíveis",
+        "Digite a senha corretamente em seus respectivos campos."
+      );
     }
 
     try {
@@ -39,6 +47,7 @@ export default function AccountFormScreen() {
         ocupacao,
         email,
         senha,
+        confirmeSenha,
       });
 
       Alert.alert("Sucesso", "Usuário cadastrado com sucesso!");
@@ -128,8 +137,8 @@ export default function AccountFormScreen() {
               <TextInput
                 style={accountFormStyles.input}
                 placeholder="Confirme sua senha"
-                value={senha}
-                onChangeText={setSenha}
+                value={confirmeSenha}
+                onChangeText={setConfirmeSenha}
                 secureTextEntry={true}
                 autoCapitalize="none"
                 returnKeyType="next"
