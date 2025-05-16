@@ -47,7 +47,12 @@ export default function HomeScreenPublic() {
             style={homePublic.footerImg}
             source={require("../assets/leandro-silva.png")}
           />
-          <Text style={homePublic.footerText}>LEANDRO SILVA</Text>
+          <View style={homePublic.footerTextAlign}>
+            <Text style={homePublic.footerText}>LEANDRO SILVA</Text>
+            <Text style={homePublic.footerTextSmall}>
+              Advogados e Associados
+            </Text>
+          </View>
         </View>
       </View>
     </ImageBackground>
