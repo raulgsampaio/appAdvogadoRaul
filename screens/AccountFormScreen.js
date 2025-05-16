@@ -15,7 +15,7 @@ import {
 import { db } from "../config/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { useNavigation } from "@react-navigation/native";
-// import { LinearGradient } from "expo-linear-gradient";
+import { LinearGradient } from "expo-linear-gradient";
 import { accountFormStyles } from "../styles/accountFormStyles"; // Estilos separados
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
@@ -60,23 +60,23 @@ export default function AccountFormScreen() {
         edges={["top", "bottom"]}
         mode={"margin"}
       >
+        <LinearGradient
+          colors={["rgba(200,166,84,0.9)", "transparent"]}
+          style={accountFormStyles.gradientOverlayTop}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 0, y: 0.7 }}
+          locations={[0.6, 1]}
+        />
+        <LinearGradient
+          colors={["rgba(110,91,46,0.9)", "transparent"]}
+          style={accountFormStyles.gradientOverlayBottom}
+          start={{ x: 0, y: 1 }}
+          end={{ x: 0, y: 0 }}
+          locations={[0.4, 1]}
+        />
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}
         >
-          {/* <LinearGradient
-            colors={["rgba(0,0,0,0.9)", "transparent"]}
-            style={homePublic.gradientOverlay}
-            start={{ x: 0, y: 0.6 }}
-            end={{ x: 0, y: 0 }}
-            locations={[0.45, 0.75]}
-          />
-          <LinearGradient
-            colors={["rgba(0,0,0,0.9)", "transparent"]}
-            style={homePublic.gradientOverlay}
-            start={{ x: 0, y: 0.6 }}
-            end={{ x: 0, y: 0 }}
-            locations={[0.45, 0.75]}
-          /> */}
           <ScrollView
             contentContainerStyle={accountFormStyles.displayFlex2Columns}
           >

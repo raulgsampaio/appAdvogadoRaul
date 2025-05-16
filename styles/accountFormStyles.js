@@ -6,7 +6,7 @@ export const accountFormStyles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
-    // backgroundColor: COLORS.background,
+    // backgroundColor: COLORS.backgroundColor,
     // padding: 20,
     // justifyContent: "center",
   },
@@ -65,5 +65,21 @@ export const accountFormStyles = StyleSheet.create({
     rowGap: 60,
     alignItems: "center",
     marginBottom: 70,
+  },
+  gradientOverlayTop: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: 800,
+    zIndex: -1,
+  },
+  gradientOverlayBottom: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: 600,
+    zIndex: -1,
   },
 });
