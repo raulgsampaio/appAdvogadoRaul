@@ -1,18 +1,17 @@
 import { StyleSheet } from "react-native";
 import { COLORS } from "../constants/colors"; // Importando o esquema de cores
+import { FONTSIZE } from "../constants/fontSize";
 
 export const accountFormStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.background,
+    padding: 10,
+    // backgroundColor: COLORS.background,
     // padding: 20,
     // justifyContent: "center",
-    display: "flex",
-    rowGap: 70,
-    alignItems: "center",
   },
   title: {
-    fontSize: 24,
+    fontSize: FONTSIZE.XL,
     color: COLORS.text,
     marginBottom: 20,
     textAlign: "center",
@@ -25,6 +24,8 @@ export const accountFormStyles = StyleSheet.create({
     fontSize: 16,
     borderColor: COLORS.gray,
     borderWidth: 1,
+    width: "auto",
+    height: 50,
   },
   button: {
     backgroundColor: COLORS.primary,
@@ -35,7 +36,7 @@ export const accountFormStyles = StyleSheet.create({
   },
   buttonText: {
     color: COLORS.card,
-    fontSize: 16,
+    fontSize: FONTSIZE.big,
     fontWeight: "bold",
   },
   img: {
@@ -57,6 +58,12 @@ export const accountFormStyles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "space-between",
     rowGap: 10,
-    width: 300,
+    width: 350,
+  },
+  displayFlex2Columns: {
+    display: "flex",
+    rowGap: 60,
+    alignItems: "center",
+    marginBottom: 70,
   },
 });

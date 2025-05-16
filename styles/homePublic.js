@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import { COLORS } from "../constants/colors"; // Importando o esquema de cores
+import { FONTSIZE } from "../constants/fontSize";
 
 export const homePublic = StyleSheet.create({
   container: {
@@ -15,7 +16,7 @@ export const homePublic = StyleSheet.create({
   },
   buttonText: {
     color: COLORS.card,
-    fontSize: 16,
+    fontSize: FONTSIZE.big,
     fontWeight: "bold",
   },
   linkingText: {
@@ -33,16 +34,23 @@ export const homePublic = StyleSheet.create({
   displayFlex2Rows: {
     display: "flex",
     flexDirection: "row",
-    columnGap: 10,
+    columnGap: 20,
     paddingTop: 10,
   },
   footerImg: {
-    width: 28,
-    height: 28,
+    width: 50,
+    height: 50,
   },
   footerText: {
     color: COLORS.card,
-    fontSize: 18,
+    fontSize: FONTSIZE.large,
+  },
+  footerTextSmall: {
+    color: COLORS.card,
+    fontSize: FONTSIZE.normal,
+  },
+  footerTextAlign: {
+    alignItems: "center",
   },
   gradientOverlay: {
     position: "absolute",
