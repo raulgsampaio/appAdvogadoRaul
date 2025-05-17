@@ -12,9 +12,10 @@ export const accountFormStyles = StyleSheet.create({
   },
   title: {
     fontSize: FONTSIZE.XL,
-    color: COLORS.text,
+    color: "white",
     marginBottom: 20,
     textAlign: "center",
+    fontWeight: "bold",
   },
   input: {
     backgroundColor: COLORS.card,
@@ -33,6 +34,14 @@ export const accountFormStyles = StyleSheet.create({
     borderRadius: 8,
     alignItems: "center",
     marginTop: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 50,
+      height: 0,
+    },
+    shadowOpacity: 0.7,
+    shadowRadius: 50,
+    elevation: 10,
   },
   buttonText: {
     color: COLORS.card,
@@ -43,8 +52,8 @@ export const accountFormStyles = StyleSheet.create({
     width: 150,
     height: 150,
     borderRadius: 100,
-    borderWidth: 5,
-    borderColor: "white",
+    borderWidth: 3,
+    borderColor: "lightgray",
     backgroundColor: "#0d0b05",
   },
   logoWithTextSpaceAround: {
@@ -79,7 +88,7 @@ export const accountFormStyles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    height: 600,
+    height: 800,
     zIndex: -1,
   },
 });
