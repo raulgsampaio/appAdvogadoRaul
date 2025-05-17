@@ -72,15 +72,15 @@ export default function AccountFormScreen() {
         <LinearGradient
           colors={["rgba(200,166,84,0.9)", "transparent"]}
           style={accountFormStyles.gradientOverlayTop}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 0, y: 0.7 }}
+          start={{ x: 0, y: 0.7 }}
+          end={{ x: 0, y: 0 }}
           locations={[0.6, 1]}
         />
         <LinearGradient
-          colors={["rgba(110,91,46,0.9)", "transparent"]}
+          colors={["rgba(0,0,0,0.9)", "transparent"]}
           style={accountFormStyles.gradientOverlayBottom}
-          start={{ x: 0, y: 1 }}
-          end={{ x: 0, y: 0 }}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 0, y: 1 }}
           locations={[0.4, 1]}
         />
         <KeyboardAvoidingView
@@ -97,7 +97,7 @@ export default function AccountFormScreen() {
                 />
               </TouchableOpacity>
               <Text style={accountFormStyles.title}>
-                Cadastres-se para logar
+                Cadastre-se para logar
               </Text>
             </View>
             <View style={accountFormStyles.inputFieldsSpaceBetween}>
