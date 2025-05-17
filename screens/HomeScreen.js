@@ -6,6 +6,7 @@ import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import { homeStyles } from "../styles/homeStyles"; // Importando estilos separados
 import { COLORS } from "../constants/colors";
+import HeaderOptions from "../components/HeaderOptions";
 
 export default function HomeScreen() {
   const navigation = useNavigation();
@@ -44,6 +45,16 @@ export default function HomeScreen() {
           locations={[0.4, 1]}
         />
         <View style={homeStyles.innerContainer}>
+          <HeaderOptions>
+            <View style={homeStyles.buttonAlignRight}>
+              <TouchableOpacity
+                style={homeStyles.buttonSair}
+                onPress={goToLogin}
+              >
+                <Text style={homeStyles.buttonText}>Sair</Text>
+              </TouchableOpacity>
+            </View>
+          </HeaderOptions>
           <View style={homeStyles.displayFlex3Columns}>
             <View style={homeStyles.displayFlex2Columns}>
               <Image
