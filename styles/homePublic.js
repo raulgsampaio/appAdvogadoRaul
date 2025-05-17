@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { COLORS } from "../constants/colors"; // Importando o esquema de cores
+import { COLORS } from "../constants/colors";
 import { FONTSIZE } from "../constants/fontSize";
 
 export const homePublic = StyleSheet.create({
@@ -58,5 +58,18 @@ export const homePublic = StyleSheet.create({
     right: 0,
     bottom: 0,
     height: 425,
+  },
+
+  // 🆕 Campo de entrada com fundo sólido branco
+  input: {
+    backgroundColor: "#ffffff",
+    color: "#000000",
+    padding: 12,
+    borderRadius: 8,
+    marginBottom: 12,
+    fontSize: 16,
+    borderColor: "#ccc",
+    borderWidth: 1,
+    width: 250, // ou use "100%" se o container for controlado
   },
 });
