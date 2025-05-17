@@ -82,7 +82,7 @@ export const homeStyles = StyleSheet.create({
     width: 130,
     height: 130,
     borderRadius: 100,
-    borderWidth: 5,
+    borderWidth: 3,
     borderColor: "lightgray",
     backgroundColor: "#0d0b05",
   },

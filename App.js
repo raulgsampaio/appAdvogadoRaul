@@ -14,10 +14,9 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="HomePublic">
-        <Stack.Screen name="HomePublic" component={HomeScreenPublic} />
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Login" component={HomeScreenPublic} />
         <Stack.Screen name="AccountForm" component={AccountFormScreen} />
-        <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen
           name="CreateProcess"
