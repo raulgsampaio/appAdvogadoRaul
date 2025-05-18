@@ -13,7 +13,7 @@ export const homeStyles = StyleSheet.create({
     justifyContent: "space-arround",
     alignItems: "center",
     width: 400,
-    // padding: 20,
+    padding: 3,
   },
   title: {
     fontSize: FONTSIZE.XL,
@@ -41,6 +41,21 @@ export const homeStyles = StyleSheet.create({
     backgroundColor: "#787a40",
     paddingVertical: 8,
     paddingHorizontal: 22,
+    borderRadius: 8,
+    marginVertical: 45, // Separação entre os botões
+    shadowColor: "white",
+    shadowOffset: {
+      width: 50,
+      height: 20,
+    },
+    shadowOpacity: 0.7,
+    shadowRadius: 50,
+    elevation: 5,
+  },
+  buttonSair1: {
+    backgroundColor: "#787a40",
+    paddingVertical: 15,
+    paddingHorizontal: 90,
     borderRadius: 8,
     marginVertical: 45, // Separação entre os botões
     shadowColor: "white",

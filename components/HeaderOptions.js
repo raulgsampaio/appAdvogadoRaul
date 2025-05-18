@@ -17,20 +17,23 @@ export default function HeaderOptions({ children }) {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
     alignItems: "center",
-    columnGap: 10,
-    marginBottom: -50,
+    paddingHorizontal: 10,
+    backgroundColor: "#6e5b2e",
   },
   logoContainer: {
-    paddingLeft: 50,
-    paddingBottom: 80,
+    marginRight: 50,
   },
   img: {
     width: 50,
     height: 50,
+    borderRadius: 100,
+    borderWidth: 1,
+    borderColor: "lightgray",
+    backgroundColor: "#0d0b05",
   },
   optionsContainer: {
-    paddingRight: 100,
+    marginLeft: 10,
   },
 });
