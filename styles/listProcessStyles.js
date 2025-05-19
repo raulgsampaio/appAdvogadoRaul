@@ -4,10 +4,11 @@ import { COLORS } from "../constants/colors"; // Importando o esquema de cores
 export const listProcessStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.background,
+    padding: 10,
+    // backgroundColor: COLORS.background,
   },
   card: {
-    backgroundColor: COLORS.card,
+    backgroundColor: "rgba(255,255,255, 0.8)",
     padding: 16,
     borderRadius: 8,
     marginBottom: 12,
@@ -35,16 +36,32 @@ export const listProcessStyles = StyleSheet.create({
     backgroundColor: "#ffffff",
     color: "#000000",
     padding: 12,
-    borderRadius: 8,
-    marginLeft: 20,
+    borderRadius: 20,
+    marginLeft: 18,
     marginBottom: 8,
     fontSize: 16,
     borderColor: "#ccc",
-    borderWidth: 1,
-    width: 250, // ou use "100%" se o container for controlado
+    borderWidth: 0.8,
+    width: 352, // ou use "100%" se o container for controlado
   },
-  position: {
+  inputPosition: {
     paddingTop: 8,
     margin: 0,
+  },
+  gradientOverlayTop: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: 800,
+    zIndex: -1,
+  },
+  gradientOverlayBottom: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: 800,
+    zIndex: -1,
   },
 });

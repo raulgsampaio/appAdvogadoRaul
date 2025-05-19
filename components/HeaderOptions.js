@@ -1,14 +1,21 @@
-import { View, Image, StyleSheet } from "react-native";
+import { View, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export default function HeaderOptions({ children }) {
+  const navigation = useNavigation();
+
+  const goToHome = () => {
+    navigation.navigate("Home");
+  };
+
   return (
     <View style={styles.container}>
-      <View style={styles.logoContainer}>
+      <TouchableOpacity style={styles.logoContainer} onPress={goToHome}>
         <Image
           style={styles.img}
           source={require("../assets/leandro-silva.png")}
         />
-      </View>
+      </TouchableOpacity>
       <View style={styles.optionsContainer}>{children}</View>
     </View>
   );
@@ -20,7 +27,9 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     paddingHorizontal: 10,
-    backgroundColor: "#6e5b2e",
+    backgroundColor: "rgba(255,255,255, 0.6)",
+    borderRadius: 8,
+    borderColor: "gray",
   },
   logoContainer: {
     marginRight: 50,
@@ -34,6 +43,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#0d0b05",
   },
   optionsContainer: {
-    marginLeft: 10,
+    marginLeft: 5,
   },
 });

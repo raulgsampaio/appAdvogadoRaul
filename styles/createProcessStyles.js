@@ -1,18 +1,18 @@
-import { StyleSheet } from 'react-native';
-import { COLORS } from '../constants/colors'; // Importando o esquema de cores
+import { StyleSheet } from "react-native";
+import { COLORS } from "../constants/colors"; // Importando o esquema de cores
 
 export const createProcessStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.background,
     padding: 20,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   title: {
     fontSize: 24,
     color: COLORS.text,
     marginBottom: 20,
-    textAlign: 'center',
+    textAlign: "center",
   },
   input: {
     backgroundColor: COLORS.card,
@@ -27,12 +27,13 @@ export const createProcessStyles = StyleSheet.create({
     backgroundColor: COLORS.primary,
     paddingVertical: 12,
     borderRadius: 8,
-    alignItems: 'center',
+    alignItems: "center",
     marginTop: 10,
+    marginBottom: 40,
   },
   buttonText: {
     color: COLORS.card,
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });
