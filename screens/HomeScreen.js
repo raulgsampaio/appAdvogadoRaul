@@ -74,17 +74,29 @@ export default function HomeScreen() {
                 size={120}
                 color={COLORS.card}
               />
-              <TouchableOpacity
-                style={homeStyles.button}
-                onPress={goToListProcess}
-              >
-                <Text style={homeStyles.buttonText}>Ver Processos</Text>
-              </TouchableOpacity>
+              <View style={homeStyles.displayFlex2rows}>
+                <TouchableOpacity
+                  style={homeStyles.button}
+                  onPress={goToListProcess}
+                >
+                  <Text style={homeStyles.buttonText}>Ver Processos</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={goToLogin}>
+                  <MaterialCommunityIcons
+                    name="logout"
+                    size={40}
+                    color="white"
+                  />
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
           <View style={homeStyles.buttonAlignRight}>
-            <TouchableOpacity style={homeStyles.buttonSair} onPress={goToLogin}>
-              <Text style={homeStyles.buttonText}>Sair</Text>
+            <TouchableOpacity onPress={goToLogin}>
+              <TouchableOpacity onPress={goToLogin}>
+                <MaterialCommunityIcons name="logout" size={40} color="white" />
+                <Text style={homeStyles.buttonText}>Sair</Text>
+              </TouchableOpacity>
             </TouchableOpacity>
           </View>
         </View>

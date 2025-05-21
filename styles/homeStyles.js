@@ -39,25 +39,10 @@ export const homeStyles = StyleSheet.create({
   },
   buttonSair: {
     backgroundColor: "#787a40",
-    paddingVertical: 8,
-    paddingHorizontal: 22,
+    paddingVertical: 2,
+    paddingHorizontal: 2,
     borderRadius: 8,
-    marginVertical: 45, // Separação entre os botões
-    shadowColor: "white",
-    shadowOffset: {
-      width: 50,
-      height: 20,
-    },
-    shadowOpacity: 0.7,
-    shadowRadius: 50,
-    elevation: 5,
-  },
-  buttonSair1: {
-    backgroundColor: "#787a40",
-    paddingVertical: 15,
-    paddingHorizontal: 90,
-    borderRadius: 8,
-    marginVertical: 45, // Separação entre os botões
+    marginVertical: 20, // Separação entre os botões
     shadowColor: "white",
     shadowOffset: {
       width: 50,
@@ -73,7 +58,8 @@ export const homeStyles = StyleSheet.create({
     fontWeight: "bold",
   },
   buttonAlignRight: {
-    width: 360,
+    width: 300,
+    marginVertical: 10,
     flexDirection: "column",
     alignItems: "flex-end",
   },
@@ -92,6 +78,12 @@ export const homeStyles = StyleSheet.create({
     rowGap: 40,
     alignItems: "center",
     // marginBottom: 70,
+  },
+  displayFlex2rows: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    columnGap: 25,
   },
   img: {
     width: 130,

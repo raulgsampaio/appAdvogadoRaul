@@ -50,12 +50,20 @@ export default function ListProcessScreen() {
       onPress={() => navigation.navigate("UpdateProcess", { processo: item })}
     >
       <Text style={listProcessStyles.title}>{item.cliente}</Text>
-      <Text style={listProcessStyles.subtitle}>Advogado: {item.advogado}</Text>
-      <Text style={listProcessStyles.subtitle}>Tipo: {item.tipo}</Text>
-      <Text style={listProcessStyles.subtitle}>Status: {item.status}</Text>
-      <Text style={listProcessStyles.subtitle}>
-        Prazo: {item.prazoDias} dias
-      </Text>
+      <View style={listProcessStyles.displayFlex2rows}>
+        <View>
+          <Text style={listProcessStyles.subtitle}>
+            Advogado: {item.advogado}
+          </Text>
+          <Text style={listProcessStyles.subtitle}>Tipo: {item.tipo}</Text>
+        </View>
+        <View style={listProcessStyles.innerAlign}>
+          <Text style={listProcessStyles.subtitle}>Status: {item.status}</Text>
+          <Text style={listProcessStyles.subtitle}>
+            Prazo: {item.prazoDias} dias
+          </Text>
+        </View>
+      </View>
     </TouchableOpacity>
   );
 
@@ -82,7 +90,7 @@ export default function ListProcessScreen() {
         />
         <TextInput
           style={listProcessStyles.input}
-          placeholder="search"
+          placeholder="pesquisar..."
           placeholderTextColor="#ccc"
           autoCapitalize="none"
           onChangeText={handleSearch}
@@ -98,6 +106,7 @@ export default function ListProcessScreen() {
           }
           contentContainerStyle={{ padding: 16 }}
         />
+        <HeaderOptions />
       </SafeAreaView>
     </SafeAreaProvider>
   );
