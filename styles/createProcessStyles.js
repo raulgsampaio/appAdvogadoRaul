@@ -4,13 +4,17 @@ import { COLORS } from "../constants/colors"; // Importando o esquema de cores
 export const createProcessStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.background,
     padding: 20,
-    justifyContent: "center",
+    justifyContent: 'center',
+  },
+  containerSafe: {
+    flex: 1,
+    //padding: 10,
+    justifyContent: 'center',
   },
   title: {
     fontSize: 24,
-    color: COLORS.text,
+    color: 'white',
     marginBottom: 20,
     textAlign: "center",
   },
@@ -35,5 +39,21 @@ export const createProcessStyles = StyleSheet.create({
     color: COLORS.card,
     fontSize: 16,
     fontWeight: "bold",
+  },
+  gradientOverlayTop: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: 800,
+    zIndex: -1,
+  },
+  gradientOverlayBottom: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: 800,
+    zIndex: -1,
   },
 });
