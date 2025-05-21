@@ -29,13 +29,13 @@ export default function HeaderOptions({ children }) {
 
   return (
     <View style={styles.container}>
-      <LinearGradient
+      {/* <LinearGradient
         colors={["rgba(240,240,240, 0.9)", "transparent"]}
         style={styles.gradientOverlay}
         start={{ x: 0, y: 0.6 }}
         end={{ x: 0, y: 0 }}
         locations={[0.3, 1]}
-      />
+      /> */}
       <TouchableOpacity onPress={goToHome}>
         <Image
           style={styles.img}
@@ -46,18 +46,18 @@ export default function HeaderOptions({ children }) {
         <MaterialCommunityIcons
           name="file-plus-outline"
           size={40}
-          color={isCreateProcessScreen ? "white" : "black"}
+          color={isCreateProcessScreen ? "white" : "gray"}
         />
       </TouchableOpacity>
       <TouchableOpacity onPress={goToListProcess}>
         <MaterialCommunityIcons
           name="file-eye-outline"
           size={40}
-          color={isListProcessScreen ? "gray" : "black"}
+          color={isListProcessScreen ? "white" : "gray"}
         />
       </TouchableOpacity>
       <TouchableOpacity onPress={goToLogin}>
-        <MaterialCommunityIcons name="logout" size={40} color="black" />
+        <MaterialCommunityIcons name="logout" size={40} color="gray" />
       </TouchableOpacity>
     </View>
   );
@@ -69,10 +69,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
     paddingHorizontal: 10,
-    paddingVertical: 5,
-    backgroundColor: "rgba(207,207,207, 0.9)",
-    borderRadius: 8,
-    borderWidth: 0.8,
+    paddingVertical: 8,
+    backgroundColor: "rgba(0,0,0, 0.9)",
+    borderRadius: 4,
+    borderWidth: 1,
     borderColor: "gray",
     columnGap: 60,
     // height: 10,
