@@ -4,8 +4,9 @@ import { COLORS } from "../constants/colors"; // Importando o esquema de cores
 export const createProcessStyles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
     justifyContent: 'center',
+    marginTop: 50,
+    marginHorizontal: 20,
   },
   containerSafe: {
     flex: 1,
@@ -15,14 +16,14 @@ export const createProcessStyles = StyleSheet.create({
   title: {
     fontSize: 24,
     color: 'white',
-    marginBottom: 20,
+    marginBottom: 40,
     textAlign: "center",
   },
   input: {
     backgroundColor: COLORS.card,
     padding: 12,
     borderRadius: 8,
-    marginBottom: 15,
+    marginBottom: 20,
     fontSize: 16,
     borderColor: COLORS.gray,
     borderWidth: 1,
