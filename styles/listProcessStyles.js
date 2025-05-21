@@ -4,7 +4,7 @@ import { COLORS } from "../constants/colors"; // Importando o esquema de cores
 export const listProcessStyles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
+    // padding: 10,
     // backgroundColor: COLORS.background,
   },
   card: {
@@ -25,6 +25,7 @@ export const listProcessStyles = StyleSheet.create({
     fontSize: 14,
     color: COLORS.text,
     marginBottom: 2,
+    textAlign: "left",
   },
   empty: {
     marginTop: 50,
@@ -38,11 +39,12 @@ export const listProcessStyles = StyleSheet.create({
     padding: 12,
     borderRadius: 20,
     marginLeft: 18,
-    marginBottom: 8,
+    marginBottom: 2,
+    marginTop: 8,
     fontSize: 16,
     borderColor: "#ccc",
     borderWidth: 0.8,
-    width: 352, // ou use "100%" se o container for controlado
+    width: 368, // ou use "100%" se o container for controlado
   },
   inputPosition: {
     paddingTop: 8,
@@ -63,5 +65,14 @@ export const listProcessStyles = StyleSheet.create({
     bottom: 0,
     height: 800,
     zIndex: -1,
+  },
+  displayFlex2rows: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    columnGap: 10,
+  },
+  innerAlign: {
+    width: 160,
   },
 });
