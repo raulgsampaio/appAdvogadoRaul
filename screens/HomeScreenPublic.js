@@ -14,7 +14,10 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { homePublic } from "../styles/homePublic";
 import { LinearGradient } from "expo-linear-gradient";
-import { signInWithEmailAndPassword, sendPasswordResetEmail } from "@firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+} from "@firebase/auth";
 import { auth } from "../config/firebase";
 
 export default function HomeScreenPublic() {
@@ -25,7 +28,7 @@ export default function HomeScreenPublic() {
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, senha);
-      navigation.replace("Home");
+      navigation.replace("ListProcess");
     } catch (error) {
       console.error("Erro no login:", error);
       Alert.alert("Erro", "E-mail ou senha inválidos.");
@@ -40,10 +43,16 @@ export default function HomeScreenPublic() {
 
     try {
       await sendPasswordResetEmail(auth, email);
-      Alert.alert("Verifique seu e-mail", "Enviamos um link para redefinir sua senha.");
+      Alert.alert(
+        "Verifique seu e-mail",
+        "Enviamos um link para redefinir sua senha."
+      );
     } catch (error) {
       console.error("Erro ao enviar redefinição de senha:", error);
-      Alert.alert("Erro", "Não foi possível enviar o e-mail. Verifique o endereço digitado.");
+      Alert.alert(
+        "Erro",
+        "Não foi possível enviar o e-mail. Verifique o endereço digitado."
+      );
     }
   };
 
