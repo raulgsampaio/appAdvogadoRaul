@@ -1,15 +1,13 @@
-import { View, Image, StyleSheet, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import { View, Image, StyleSheet, TouchableOpacity, Text } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { MaterialCommunityIcons } from "react-native-vector-icons";
-import { LinearGradient } from "expo-linear-gradient";
 
-export default function HeaderOptions({ children }) {
+export default function HeaderOptions() {
   const navigation = useNavigation();
   const route = useRoute();
 
-  const goToHome = () => {
-    navigation.navigate("Home");
-  };
+  const [isLoggingOutPressed, setIsLoggingOutPressed] = useState(false);
 
   const goToCreateProcess = () => {
     navigation.navigate("CreateProcess");
@@ -20,8 +18,17 @@ export default function HeaderOptions({ children }) {
   };
 
   const goToLogin = () => {
-    navigation.navigate("Login");
+    setIsLoggingOutPressed(true);
+    setTimeout(() => {
+      setIsLoggingOutPressed(false);
+      navigation.navigate("Login");
+    }, 300);
   };
+
+  const getTextStyle = (active) => ({
+    color: active ? "white" : "gray",
+    fontSize: 10,
+  });
 
   const isCreateProcessScreen = route.name === "CreateProcess";
 
@@ -29,36 +36,52 @@ export default function HeaderOptions({ children }) {
 
   return (
     <View style={styles.container}>
-      {/* <LinearGradient
-        colors={["rgba(240,240,240, 0.9)", "transparent"]}
-        style={styles.gradientOverlay}
-        start={{ x: 0, y: 0.6 }}
-        end={{ x: 0, y: 0 }}
-        locations={[0.3, 1]}
-      /> */}
-      <TouchableOpacity onPress={goToHome}>
-        <Image
-          style={styles.img}
-          source={require("../assets/leandro-silva.png")}
-        />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={goToCreateProcess}>
-        <MaterialCommunityIcons
-          name="file-plus-outline"
-          size={40}
-          color={isCreateProcessScreen ? "white" : "gray"}
-        />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={goToListProcess}>
-        <MaterialCommunityIcons
-          name="file-eye-outline"
-          size={40}
-          color={isListProcessScreen ? "white" : "gray"}
-        />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={goToLogin}>
-        <MaterialCommunityIcons name="logout" size={40} color="gray" />
-      </TouchableOpacity>
+      <Image
+        style={styles.img}
+        source={require("../assets/leandro-silva.png")}
+      />
+
+      <View style={styles.displayFlex2Columns}>
+        <TouchableOpacity onPress={goToCreateProcess}>
+          <MaterialCommunityIcons
+            name="file-plus-outline"
+            size={30}
+            color={isCreateProcessScreen ? "white" : "gray"}
+          />
+        </TouchableOpacity>
+        <Text style={getTextStyle(isCreateProcessScreen)}>Criar Processo</Text>
+      </View>
+      <View style={styles.displayFlex2Columns}>
+        <TouchableOpacity onPress={goToListProcess}>
+          <MaterialCommunityIcons
+            name="file-eye-outline"
+            size={30}
+            color={isListProcessScreen ? "white" : "gray"}
+          />
+        </TouchableOpacity>
+        <Text style={getTextStyle(isListProcessScreen)}>Ver Processo</Text>
+      </View>
+      <View style={styles.displayFlex2Columns}>
+        <TouchableOpacity
+          onPress={goToLogin}
+          onPressIn={() => setIsLoggingOutPressed(true)}
+          onPressOut={() => setIsLoggingOutPressed(false)}
+        >
+          <MaterialCommunityIcons
+            name="logout"
+            size={30}
+            color={isLoggingOutPressed ? "white" : "gray"}
+          />
+        </TouchableOpacity>
+        <Text
+          style={{
+            color: isLoggingOutPressed ? "white" : "gray",
+            fontSize: 10,
+          }}
+        >
+          Sair
+        </Text>
+      </View>
     </View>
   );
 }
@@ -70,11 +93,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 10,
     paddingVertical: 8,
-    backgroundColor: "rgba(0,0,0, 0.9)",
+    backgroundColor: "rgba(0,0,0, 0.85)",
     borderRadius: 4,
     borderWidth: 1,
     borderColor: "gray",
-    columnGap: 60,
+    columnGap: 15,
     // height: 10,
   },
   // logoContainer: {
@@ -100,5 +123,11 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     height: 35,
+  },
+  displayFlex2Columns: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-around",
+    alignItems: "center",
   },
 });
