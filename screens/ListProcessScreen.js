@@ -17,6 +17,7 @@ import { listProcessStyles } from "../styles/listProcessStyles"; // Importando o
 export default function ListProcessScreen() {
   const [processos, setProcessos] = useState([]);
   const [resultadosFiltrados, setResultadosFiltrados] = useState([]);
+  const [loading, setLoading] = useState(true);
   const navigation = useNavigation();
 
   const handleSearch = useCallback(
@@ -39,6 +40,7 @@ export default function ListProcessScreen() {
       }));
       setProcessos(lista);
       setResultadosFiltrados(lista);
+      setLoading(false);
     });
 
     return () => unsubscribe();
@@ -47,7 +49,7 @@ export default function ListProcessScreen() {
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={listProcessStyles.card}
-      onPress={() => navigation.navigate("UpdateProcess", { processo: item })}
+      onPress={() => navigation.navigate("SingleProcess", { processo: item })}
     >
       <Text style={listProcessStyles.title}>{item.cliente}</Text>
       <View style={listProcessStyles.displayFlex2rows}>
@@ -95,18 +97,28 @@ export default function ListProcessScreen() {
           autoCapitalize="none"
           onChangeText={handleSearch}
         />
-        <FlatList
-          data={resultadosFiltrados}
-          keyExtractor={(item) => item.id}
-          renderItem={renderItem}
-          ListEmptyComponent={
-            <Text style={listProcessStyles.empty}>
-              Nenhum processo cadastrado.
+        {loading ? (
+          <View style={listProcessStyles.loadingView}>
+            <Text style={listProcessStyles.loadingText}>
+              Carregando Processos...
             </Text>
-          }
-          contentContainerStyle={{ padding: 16 }}
-        />
-        <HeaderOptions />
+          </View>
+        ) : (
+          <FlatList
+            data={resultadosFiltrados}
+            keyExtractor={(item) => item.id}
+            renderItem={renderItem}
+            ListEmptyComponent={
+              <Text style={listProcessStyles.empty}>
+                Nenhum processo cadastrado.
+              </Text>
+            }
+            contentContainerStyle={{ padding: 16 }}
+          />
+        )}
+        <View style={listProcessStyles.footerBar}>
+          <HeaderOptions />
+        </View>
       </SafeAreaView>
     </SafeAreaProvider>
   );
