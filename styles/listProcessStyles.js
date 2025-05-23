@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import { COLORS } from "../constants/colors"; // Importando o esquema de cores
+import { FONTSIZE } from "../constants/fontSize";
 
 export const listProcessStyles = StyleSheet.create({
   container: {
@@ -74,5 +75,21 @@ export const listProcessStyles = StyleSheet.create({
   },
   innerAlign: {
     width: 160,
+  },
+  loadingView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 16,
+  },
+  loadingText: {
+    fontSize: FONTSIZE.big,
+    color: COLORS.card,
+  },
+  footerBar: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
   },
 });
