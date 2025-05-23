@@ -8,7 +8,6 @@ export const updateProcessStyles = StyleSheet.create({
     padding: 20,
   },
   containerMainPosition: {
-    flex: 1,
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
