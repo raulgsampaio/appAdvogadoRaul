@@ -3,7 +3,6 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import HeaderOptions from "../components/HeaderOptions";
-// import { updateProcessStyles } from "../styles/updateProcessStyles"; // Estilos separados
 import { singleProcess } from "../styles/singleProcess";
 
 export default function SingleProcessScreen() {
@@ -38,6 +37,7 @@ export default function SingleProcessScreen() {
         />
         <View style={singleProcess.containerMainPosition}>
           <Text style={singleProcess.title}>Processo {processo.cliente}</Text>
+
           <View style={singleProcess.containerMain}>
             <Text style={singleProcess.label}>Cliente:</Text>
             <Text style={singleProcess.text}>{processo.cliente}</Text>
