@@ -1,5 +1,12 @@
-import { View, Text, TextInput, TouchableOpacity, Alert } from "react-native";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { View, Text, TouchableOpacity, Alert } from "react-native";
+import {
+  useNavigation,
+  useRoute,
+  useFocusEffect,
+} from "@react-navigation/native";
+import { useCallback, useState } from "react";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../config/firebase";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import HeaderOptions from "../components/HeaderOptions";
@@ -10,8 +17,24 @@ export default function SingleProcessScreen() {
   const route = useRoute();
   const { processo } = route.params; // Recebendo o processo clicado
 
+  const [processoAtualizado, setProcessoAtualizado] = useState(processo);
+
+  useFocusEffect(
+    useCallback(() => {
+      const fetchProcesso = async () => {
+        const docRef = doc(db, "processos", processo.id);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setProcessoAtualizado({ id: docSnap.id, ...docSnap.data() });
+        }
+      };
+
+      fetchProcesso();
+    }, [processo.id])
+  );
+
   const goToUpdateScreen = () => {
-    navigation.navigate("UpdateProcess", { processo });
+    navigation.navigate("UpdateProcess", { processo: processoAtualizado });
   };
 
   return (
@@ -36,23 +59,29 @@ export default function SingleProcessScreen() {
           locations={[0.4, 1]}
         />
         <View style={singleProcess.containerMainPosition}>
-          <Text style={singleProcess.title}>Processo {processo.cliente}</Text>
+          <Text style={singleProcess.title}>
+            Processo {processoAtualizado.cliente}
+          </Text>
 
           <View style={singleProcess.containerMain}>
             <Text style={singleProcess.label}>Cliente:</Text>
-            <Text style={singleProcess.text}>{processo.cliente}</Text>
+            <Text style={singleProcess.text}>{processoAtualizado.cliente}</Text>
 
             <Text style={singleProcess.label}>Advogado:</Text>
-            <Text style={singleProcess.text}>{processo.advogado}</Text>
+            <Text style={singleProcess.text}>
+              {processoAtualizado.advogado}
+            </Text>
 
             <Text style={singleProcess.label}>Tipo:</Text>
-            <Text style={singleProcess.text}>{processo.tipo}</Text>
+            <Text style={singleProcess.text}>{processoAtualizado.tipo}</Text>
 
             <Text style={singleProcess.label}>Status:</Text>
-            <Text style={singleProcess.text}>{processo.status}</Text>
+            <Text style={singleProcess.text}>{processoAtualizado.status}</Text>
 
             <Text style={singleProcess.label}>Prazo:</Text>
-            <Text style={singleProcess.text}>{processo.prazoDias}</Text>
+            <Text style={singleProcess.text}>
+              {processoAtualizado.prazoDias}
+            </Text>
           </View>
           <TouchableOpacity
             style={singleProcess.button}
