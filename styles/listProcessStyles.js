@@ -39,13 +39,13 @@ export const listProcessStyles = StyleSheet.create({
     color: "#000000",
     padding: 12,
     borderRadius: 20,
-    marginLeft: 18,
     marginBottom: 2,
     marginTop: 8,
     fontSize: 16,
     borderColor: "#ccc",
     borderWidth: 0.8,
-    width: 368, // ou use "100%" se o container for controlado
+    width: '90%',
+    alignSelf: 'center',
   },
   inputPosition: {
     paddingTop: 8,
