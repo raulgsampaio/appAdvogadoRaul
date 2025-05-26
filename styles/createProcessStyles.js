@@ -8,6 +8,10 @@ export const createProcessStyles = StyleSheet.create({
     marginTop: 50,
     marginHorizontal: 20,
   },
+  containerInput:{
+    justifyContent: 'center',
+    marginTop: 50,
+  },
   containerSafe: {
     flex: 1,
     //padding: 10,
@@ -16,7 +20,8 @@ export const createProcessStyles = StyleSheet.create({
   title: {
     fontSize: 24,
     color: 'white',
-    marginBottom: 40,
+    marginBottom: 20,
+    marginTop: 50,
     textAlign: "center",
   },
   input: {
