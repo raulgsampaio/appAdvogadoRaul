@@ -19,7 +19,7 @@ export const updateProcessStyles = StyleSheet.create({
     marginBottom: 24,
   },
   formContainer: {
-    backgroundColor: "rgba(255,255,255,0.8)", // ← igual ao card
+    backgroundColor: "rgba(255,255,255,0.8)",
     borderRadius: 8,
     padding: 16,
     width: "90%",
@@ -65,10 +65,25 @@ export const updateProcessStyles = StyleSheet.create({
     width: "100%",
     maxWidth: 300,
     alignSelf: "center",
-    marginTop: 24,
+    marginTop: 12,
   },
   buttonText: {
     color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  cancelButton: {
+    backgroundColor: "#ccc",
+    paddingVertical: 14,
+    borderRadius: 12,
+    alignItems: "center",
+    width: "100%",
+    maxWidth: 300,
+    alignSelf: "center",
+    marginTop: 12,
+  },
+  cancelButtonText: {
+    color: "#333",
     fontSize: 16,
     fontWeight: "bold",
   },

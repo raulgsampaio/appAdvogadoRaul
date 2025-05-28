@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
-  TextInput,
   TouchableOpacity,
   Alert,
   StyleSheet,
   Platform,
 } from "react-native";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc, collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firebase";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
@@ -16,6 +15,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import HeaderOptions from "../components/HeaderOptions";
 import { updateProcessStyles } from "../styles/updateProcessStyles";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { Picker } from "@react-native-picker/picker";
 
 export default function UpdateProcessScreen() {
   const navigation = useNavigation();
@@ -23,6 +23,20 @@ export default function UpdateProcessScreen() {
   const { processo } = route.params;
 
   const [novoStatus, setNovoStatus] = useState(processo.status);
+  const [statusList, setStatusList] = useState([]);
+
+  useEffect(() => {
+    const fetchStatusList = async () => {
+      try {
+        const snapshot = await getDocs(collection(db, "status_lista"));
+        const list = snapshot.docs.map(doc => doc.data().status);
+        setStatusList(list);
+      } catch (error) {
+        console.error("Erro ao buscar status:", error);
+      }
+    };
+    fetchStatusList();
+  }, []);
 
   const handleUpdateStatus = async () => {
     if (!novoStatus) {
@@ -31,7 +45,7 @@ export default function UpdateProcessScreen() {
     }
 
     try {
-      const processoRef = doc(db, "processos", processo.id);
+      const processoRef = doc(db, "processos_2", processo.id);
       await updateDoc(processoRef, { status: novoStatus });
 
       Alert.alert("Sucesso", "Status atualizado!");
@@ -57,7 +71,7 @@ export default function UpdateProcessScreen() {
           extraScrollHeight={100}
         >
           <Text style={updateProcessStyles.title}>
-            Atualizar Processo {processo.cliente}
+            Atualizar Processo {processo.numero}
           </Text>
 
           <View style={updateProcessStyles.formContainer}>
@@ -78,18 +92,27 @@ export default function UpdateProcessScreen() {
 
             <View style={updateProcessStyles.infoBlock}>
               <Text style={updateProcessStyles.label}>Novo Status:</Text>
-              <TextInput
-                style={updateProcessStyles.input}
-                value={novoStatus}
-                onChangeText={setNovoStatus}
-                placeholder="Digite o novo status"
-                placeholderTextColor="#888"
-              />
+              <Picker
+                selectedValue={novoStatus}
+                onValueChange={(itemValue) => setNovoStatus(itemValue)}
+                style={[updateProcessStyles.input, { height: 52, paddingVertical: 0 }]}
+              >
+                <Picker.Item label="Selecione um status" value="" />
+                {statusList.map((s, i) => (
+                  <Picker.Item label={s} value={s} key={i} />
+                ))}
+              </Picker>
             </View>
 
-            <TouchableOpacity style={updateProcessStyles.button} onPress={handleUpdateStatus}>
-              <Text style={updateProcessStyles.buttonText}>Salvar</Text>
-            </TouchableOpacity>
+            <View style={{ flexDirection: "row", justifyContent: "space-between", gap: 12, marginTop: 24 }}>
+              <TouchableOpacity style={[updateProcessStyles.button, { flex: 1 }]} onPress={handleUpdateStatus}>
+                <Text style={updateProcessStyles.buttonText}>Salvar</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={[updateProcessStyles.cancelButton, { flex: 1 }]} onPress={() => navigation.goBack()}>
+                <Text style={updateProcessStyles.cancelButtonText}>Cancelar</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </KeyboardAwareScrollView>
 

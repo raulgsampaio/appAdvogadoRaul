@@ -18,7 +18,7 @@ export default function SingleProcessScreen() {
   useFocusEffect(
     useCallback(() => {
       const fetchProcesso = async () => {
-        const docRef = doc(db, "processos", processo.id);
+        const docRef = doc(db, "processos_2", processo.id); // ✅ nova collection
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           setProcessoAtualizado({ id: docSnap.id, ...docSnap.data() });
@@ -47,7 +47,7 @@ export default function SingleProcessScreen() {
         >
           <ScrollView contentContainerStyle={singleProcess.scrollContainer}>
             <Text style={singleProcess.title}>
-              Processo de {processoAtualizado.cliente}
+              Processo #{processoAtualizado.numero}
             </Text>
 
             <View style={singleProcess.containerMain}>
@@ -69,11 +69,6 @@ export default function SingleProcessScreen() {
               <View style={singleProcess.infoBlock}>
                 <Text style={singleProcess.label}>Status:</Text>
                 <Text style={singleProcess.text}>{processoAtualizado.status}</Text>
-              </View>
-
-              <View style={singleProcess.infoBlock}>
-                <Text style={singleProcess.label}>Prazo (dias):</Text>
-                <Text style={singleProcess.text}>{processoAtualizado.prazoDias}</Text>
               </View>
 
               <TouchableOpacity style={singleProcess.button} onPress={goToUpdateScreen}>
