@@ -7,7 +7,7 @@ import {
   TextInput,
 } from "react-native";
 import { db } from "../config/firebase";
-import { collection, onSnapshot, orderBy } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
@@ -22,11 +22,21 @@ export default function ListProcessScreen() {
 
   const handleSearch = useCallback(
     (value) => {
-      const resultadosFiltrados = processos.filter(
-        (processo) =>
-          processo.cliente.toLowerCase().includes(value.toLowerCase()) ||
-          processo.tipo.toLowerCase().includes(value.toLowerCase())
-      );
+      const lowerValue = value.toLowerCase();
+      const resultadosFiltrados = processos.filter((processo) => {
+        const cliente = processo.cliente?.toLowerCase() || "";
+        const tipo = processo.tipo?.toLowerCase() || "";
+        const status = processo.status?.toLowerCase() || "";
+        const prazo = processo.prazoDias?.toString() || "";
+
+        return (
+          cliente.includes(lowerValue) ||
+          tipo.includes(lowerValue) ||
+          status.includes(lowerValue) ||
+          prazo.includes(lowerValue)
+        );
+      });
+
       setResultadosFiltrados(resultadosFiltrados);
     },
     [processos]
