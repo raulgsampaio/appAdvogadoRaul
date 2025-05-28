@@ -77,6 +77,22 @@ export default function HomeScreenPublic() {
             end={{ x: 0, y: 0 }}
             locations={[0.45, 0.75]}
           />
+
+          {/* Botão "Sobre" no canto superior direito */}
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Sobre")}
+            style={{
+              position: "absolute",
+              top: 40,
+              right: 20,
+              zIndex: 10,
+            }}
+          >
+            <Text style={{ color: "white", fontSize: 13, textDecorationLine: "underline" }}>
+              Sobre o App
+            </Text>
+          </TouchableOpacity>
+
           <View style={homePublic.displayFlex2Columns}>
             <View>
               <TextInput

@@ -72,4 +72,11 @@ export const homePublic = StyleSheet.create({
     borderWidth: 1,
     width: 250, // ou use "100%" se o container for controlado
   },
+  linkingTextSmall: {
+  color: "#aaa",
+  fontSize: 13,
+  textAlign: "center",
+  marginTop: 12,
+  textDecorationLine: "underline",
+},
 });

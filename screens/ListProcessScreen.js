@@ -7,12 +7,12 @@ import {
   TextInput,
 } from "react-native";
 import { db } from "../config/firebase";
-import { collection, onSnapshot, orderBy } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import HeaderOptions from "../components/HeaderOptions";
-import { listProcessStyles } from "../styles/listProcessStyles"; // Importando os estilos separados
+import { listProcessStyles } from "../styles/listProcessStyles";
 
 export default function ListProcessScreen() {
   const [processos, setProcessos] = useState([]);
@@ -22,18 +22,20 @@ export default function ListProcessScreen() {
 
   const handleSearch = useCallback(
     (value) => {
-      const resultadosFiltrados = processos.filter(
-        (processo) =>
-          processo.cliente.toLowerCase().includes(value.toLowerCase()) ||
-          processo.tipo.toLowerCase().includes(value.toLowerCase())
+      const lowerValue = value.toLowerCase();
+      const resultados = processos.filter((processo) =>
+        (processo.numero?.toLowerCase() || "").includes(lowerValue) ||
+        (processo.cliente?.toLowerCase() || "").includes(lowerValue) ||
+        (processo.advogado?.toLowerCase() || "").includes(lowerValue) ||
+        (processo.status?.toLowerCase() || "").includes(lowerValue)
       );
-      setResultadosFiltrados(resultadosFiltrados);
+      setResultadosFiltrados(resultados);
     },
     [processos]
   );
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(collection(db, "processos"), (snapshot) => {
+    const unsubscribe = onSnapshot(collection(db, "processos_2"), (snapshot) => {
       const lista = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -51,19 +53,16 @@ export default function ListProcessScreen() {
       style={listProcessStyles.card}
       onPress={() => navigation.navigate("SingleProcess", { processo: item })}
     >
-      <Text style={listProcessStyles.title}>{item.cliente}</Text>
+      <Text style={listProcessStyles.title}>
+        {item.numero ? `#${item.numero}` : "Processo"} - {item.cliente}
+      </Text>
       <View style={listProcessStyles.displayFlex2rows}>
         <View>
-          <Text style={listProcessStyles.subtitle}>
-            Advogado: {item.advogado}
-          </Text>
+          <Text style={listProcessStyles.subtitle}>Advogado: {item.advogado}</Text>
           <Text style={listProcessStyles.subtitle}>Tipo: {item.tipo}</Text>
         </View>
         <View style={listProcessStyles.innerAlign}>
           <Text style={listProcessStyles.subtitle}>Status: {item.status}</Text>
-          <Text style={listProcessStyles.subtitle}>
-            Prazo: {item.prazoDias} dias
-          </Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -90,18 +89,18 @@ export default function ListProcessScreen() {
           end={{ x: 0, y: 1 }}
           locations={[0.4, 1]}
         />
+
         <TextInput
           style={listProcessStyles.input}
-          placeholder="pesquisar..."
+          placeholder="Pesquisar por número, cliente, advogado ou status..."
           placeholderTextColor="#ccc"
           autoCapitalize="none"
           onChangeText={handleSearch}
         />
+
         {loading ? (
           <View style={listProcessStyles.loadingView}>
-            <Text style={listProcessStyles.loadingText}>
-              Carregando Processos...
-            </Text>
+            <Text style={listProcessStyles.loadingText}>Carregando Processos...</Text>
           </View>
         ) : (
           <FlatList
@@ -110,12 +109,13 @@ export default function ListProcessScreen() {
             renderItem={renderItem}
             ListEmptyComponent={
               <Text style={listProcessStyles.empty}>
-                Nenhum processo cadastrado.
+                Nenhum processo encontrado.
               </Text>
             }
             contentContainerStyle={{ padding: 16 }}
           />
         )}
+
         <View style={listProcessStyles.footerBar}>
           <HeaderOptions />
         </View>
