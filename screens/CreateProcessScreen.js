@@ -78,43 +78,47 @@ export default function CreateProcessScreen() {
         style={createProcessStyles.container}
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
-        <Text style={createProcessStyles.title}>Cadastrar Processo</Text>
+        <Text style={createProcessStyles.title}>
+            Cadastrar Processo
+          </Text>
         <ScrollView>
-          <TextInput
-            style={createProcessStyles.input}
-            placeholder="Cliente"
-            value={cliente}
-            onChangeText={setCliente}
-          />
+          <View style={createProcessStyles.containerInput}>
+            <TextInput
+              style={createProcessStyles.input}
+              placeholder="Cliente"
+              value={cliente}
+              onChangeText={setCliente}
+            />
         
-          <TextInput
-            style={createProcessStyles.input}
-            placeholder="Advogado"
-            value={advogado}
-            onChangeText={setAdvogado}
-          />
+            <TextInput
+              style={createProcessStyles.input}
+              placeholder="Advogado"
+              value={advogado}
+              onChangeText={setAdvogado}
+            />
           
-          <TextInput
-            style={createProcessStyles.input}
-            placeholder="Tipo de Processo"
-            value={tipo}
-            onChangeText={setTipo}
-          />
+            <TextInput
+              style={createProcessStyles.input}
+              placeholder="Tipo de Processo"
+              value={tipo}
+              onChangeText={setTipo}
+            />
         
-          <TextInput
-            style={createProcessStyles.input}
-            placeholder="Status Inicial"
-            value={status}
-            onChangeText={setStatus}
-          />
+            <TextInput
+              style={createProcessStyles.input}
+              placeholder="Status Inicial"
+              value={status}
+              onChangeText={setStatus}
+            />
         
-          <TextInput
-            style={createProcessStyles.input}
-            placeholder="Prazo (dias)"
-            value={prazoDias}
-            onChangeText={setPrazoDias}
-            keyboardType="numeric"
-          />
+            <TextInput
+              style={createProcessStyles.input}
+              placeholder="Prazo (dias)"
+              value={prazoDias}
+              onChangeText={setPrazoDias}
+              keyboardType="numeric"
+            />
+          </View>
         
           <TouchableOpacity
             style={createProcessStyles.button}
