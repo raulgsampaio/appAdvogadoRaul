@@ -6,6 +6,7 @@ import ListProcessScreen from "./screens/ListProcessScreen";
 import UpdateProcessScreen from "./screens/UpdateProcessScreen";
 import HomeScreenPublic from "./screens/HomeScreenPublic";
 import SingleProcessScreen from "./screens/SingleProcessScreen";
+import Sobre from "./screens/Sobre";
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,11 @@ export default function App() {
           options={{ title: "Atualizar Processo" }}
         />
         <Stack.Screen name="SingleProcess" component={SingleProcessScreen} />
+        <Stack.Screen
+          name="Sobre"
+          component={Sobre}
+          options={{ title: "Sobre o App" }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
